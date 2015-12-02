@@ -1,0 +1,19 @@
+<ion-view title="My Dinners" ng-controller="myDinnersCtrl">
+    <ion-content padding="'true'" class="has-header">
+        <div class="list card" ng-repeat="dinner in dinners">
+            <div class="item item-divider">{{ dinner.name }}</div>
+            <div class="item item-body">
+                <div>
+                    <div>
+                        <i class="icon ion-calendar" style="margin-right: 5px;"></i>
+                        {{ dinner.date }}
+                    </div>
+                    <div>
+                        <i class="icon ion-location"></i>
+                        {{ dinner.location }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>
