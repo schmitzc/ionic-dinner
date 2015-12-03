@@ -8,7 +8,7 @@ describe('loginCtrl', function() {
   beforeEach(module('app'));
 
   describe('#doLogin', function() {
-    beforeEach(inject(function($controller, $q) {
+    beforeEach(inject(function($controller, $q, _$scope_) {
       deferredLogin = $q.defer();
 
       dinnersMock = {
@@ -23,9 +23,10 @@ describe('loginCtrl', function() {
       controller = $controller('loginCtrl', {
         '$ionicPopup': ionicPopupMock,
         '$state': stateMock,
-        'Dinners': dinnersMock
+        'Dinners': dinnersMock,
+        '$scope': _$scope_
       });
-    });
+    }));
 
     it('should call login on Dinners', function() {
       expect(dinnersMock.login).toHaveBeenCalledWith('test1', 'password1');

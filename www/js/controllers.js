@@ -7,11 +7,10 @@ angular.module('app.controllers', [])
         };
 
         var onError = function() {
-            $state.go('my-dinners');
-            //$ionicPopup.alert({
-            //    title: 'Login failed :(',
-            //    template: 'Please try again'
-            //});
+            $ionicPopup.alert({
+                title: 'Login failed :(',
+                template: 'Please try again'
+            });
         };
 
         Dinners.login(this.username, this.password)
