@@ -16,7 +16,7 @@ describe('Clicking on the login button', function() {
             expect(browser.getLocationAbsUrl()).toMatch('/my-dinners');
 
             var dinners = element.all(by.repeater('dinner in dinners'));
-            expect(dinners.count()).toEqual(3);
+            expect(dinners.count()).toEqual(25);
         });
     });
 

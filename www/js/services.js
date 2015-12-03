@@ -5,29 +5,29 @@ angular.module('app.services', [])
         login: function(username, password) {
             var request = {
                 method: 'POST',
-                url: 'http://nerddinner.com/Account/Logon',
+                url: 'https://demo5062986.mockable.io/authenticate',
                 headers: {
                     'Access-Control-Allow-Origin': '*',
                     'Content-Type': 'application/x-www-form-urlencoded'
                 },
-                data: 'UserName=' + username + '&Password=' + password + '&RememberMe=false'
+                data: 'username=' + username + '&password=' + password
             };
 
             return $http(request).then(function(response) {
-                var deferrred = $q.defer();
+                var deferred = $q.defer();
 
-                if (response.headers('x-xrds-location')) {
-                    deferrred.resolve();
+                if (response.status == 200) {
+                    deferred.resolve();
                 } else {
-                    deferrred.reject();
+                    deferred.reject();
                 }
 
-                return deferrred.promise();
+                return deferred.promise;
             });
         },
 
         getMyDinners: function() {
-            var parseDinners = function() {
+            var parseDinners = function(response) {
                 var tmp = document.implementation.createHTMLDocument();
                 tmp.body.innerHTML = response.data;
 
@@ -52,7 +52,7 @@ angular.module('app.services', [])
 
             var request = {
                 method: 'GET',
-                url: 'http://nerddinner.com/dinners',
+                url: 'https://demo5062986.mockable.io/dinners',
                 headers: {
                     'Access-Control-Allow-Origin': '*'
                 }
