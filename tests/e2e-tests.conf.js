@@ -11,5 +11,10 @@ exports.config = {
     ],
     jasmineNodeOpts: {
         isVerbose: true
+    },
+    onPrepare: function() {
+        require('protractor-http-mock').config = {
+            protractorConfig: 'e2e-tests.conf.js'
+        };
     }
 };
